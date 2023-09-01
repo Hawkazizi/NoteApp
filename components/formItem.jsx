@@ -19,7 +19,6 @@ const FormItem = ({ data, setData, updateData }) => {
 
   const changeHandler = (e) => {
     setSave(e.target.value);
-    console.log(e.target.value);
   };
 
   const submitHandler = (e) => {
@@ -27,10 +26,14 @@ const FormItem = ({ data, setData, updateData }) => {
     if (save === undefined || save === "") {
       alert("plz enter a valid input");
     } else {
-      setData((prev) => [(prev[key] = save), ...data]);
+      const newData = [...data];
+
+      newData[key] = save;
+
+      setData(newData);
     }
     // setUpdate();
-
+    setModalState(false);
     console.log(data);
   };
   return (
@@ -47,7 +50,7 @@ const FormItem = ({ data, setData, updateData }) => {
           <div>
             <form onSubmit={submitHandler}>
               <input
-                placeholder="Edite Text"
+                placeholder="Edit Text"
                 className="p-4 border-2  border-blue-900 rounded text-blue-900"
                 onChange={changeHandler}
               />

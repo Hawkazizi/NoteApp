@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const FormItem = ({ data, setData, updateData }) => {
+const FormItem = ({ data, setData }) => {
   const [ModalState, setModalState] = useState(false);
   const [key, setKey] = useState();
   const [save, setSave] = useState();
@@ -36,8 +36,9 @@ const FormItem = ({ data, setData, updateData }) => {
     setModalState(false);
     console.log(data);
   };
+
   return (
-    <div>
+    <div className="">
       {ModalState ? (
         <div className="flex justify-center mt-16 space-x-16 border-2 mx-64 py-12 rounded border-blue-900 bg-gray-900">
           {" "}
@@ -50,6 +51,7 @@ const FormItem = ({ data, setData, updateData }) => {
           <div>
             <form onSubmit={submitHandler}>
               <input
+                type="text"
                 placeholder="Edit Text"
                 className="p-4 border-2  border-blue-900 rounded text-blue-900"
                 onChange={changeHandler}
@@ -66,14 +68,14 @@ const FormItem = ({ data, setData, updateData }) => {
             <div
               key={index}
               onDoubleClick={() => removeHandler(index)}
-              className="flex border-2 justify-between pl-8 m-6 mx-64 p-3  border-blue-900 bg-gray-900 text-2xl rounded transititext-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+              className="flex border-2 justify-between pl-8 m-6 mx-64 p-3  border-blue-900 bg-gray-800 text-2xl rounded transititext-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
               data-te-toggle="tooltip"
               title="Double tap to remove!"
             >
               {item}
 
               <p
-                className="border-2 p-1 rounded border-blue-950 bg-gray-900 hover:bg-blue-950"
+                className="border-2 p-2 rounded border-blue-800 bg-gray-900 hover:bg-indigo-900 text-lg"
                 onClick={() => EditHandler(index) || setKey(index)}
               >
                 {" "}

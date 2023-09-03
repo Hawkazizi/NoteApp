@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import FormItem from "./formItem";
 import { useState } from "react";
@@ -19,24 +20,27 @@ const Profile = () => {
     }
     setValue("");
   };
+
   return (
     <div>
-      {" "}
-      <div className="flex justify-center mt-32 ">
-        <form onSubmit={submitHandler}>
-          <input
-            type="text"
-            placeholder="Username"
-            className="mb-3 p-2 border-2 border-blue-900 text-blue-500 rounded "
-            value={value}
-            onChange={changeHandler}
-          />
-          <button className="border-2 border-green-900  m-8 rounded bg-gray-900 p-2 hover:bg-green-900">
-            Submit
-          </button>
-        </form>
+      <div className="bg-blue-grey-900">
+        {" "}
+        <div className="flex justify-center mt-32 ">
+          <form onSubmit={submitHandler}>
+            <input
+              type="text"
+              placeholder="Username"
+              className="mb-3 p-2 border-2 border-grey-900 text-blue-grey-900 rounded "
+              value={value}
+              onChange={changeHandler}
+            />
+            <button className="border-2 border-green-900  m-8 rounded bg-gray-900 p-2 hover:bg-green-900">
+              Submit
+            </button>
+          </form>
+        </div>
+        <FormItem data={value2} setData={setValue2} />
       </div>
-      <FormItem data={value2} setData={setValue2} updateData={setValue} />
     </div>
   );
 };
